@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Link to jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <title>Ajax tutorial</title>
         <script>
+            // whatever goes inside of () is run after website is loaded
+            $(document).ready(function() {
+                $("#btn").click(function() {
+                    // load() - 1) URL, 2) Data that is loaded in, 3) callback
+                    $("#test").load("data.txt", {
+                        // name is for GET
+                        Name: "Daniel", 
+                        Lastname: "Nelson"});
+                }, 
+                //CALLBACK - do something once done loading                
+                function() {
+                    alert("Hi there");
+                }
+                );
 
+            });
         </script>
     </head>
 
     <body>
         <div>
-            
+            <p id="test">This is the first content</p>
         </div>
+
+        <button id="btn">Click to change</button>
     </body>
 </html>
